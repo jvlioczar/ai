@@ -241,6 +241,28 @@ const I18N = {
   }
 };
 
+// Labels for the top superbar items
+const SUPERBAR_I18N = {
+  pt: {
+    design: "Design",
+    games: "Games",
+    language: "Idiomas",
+    ai: "IA",
+    music: "Música",
+    coding: "Programação",
+    social: "Redes Sociais"
+  },
+  en: {
+    design: "Design",
+    games: "Games",
+    language: "Language",
+    ai: "AI",
+    music: "Music",
+    coding: "Coding",
+    social: "Social"
+  }
+};
+
 function getLang(){ try{ return localStorage.getItem('libia-lang') || 'pt'; }catch(e){ return 'pt'; } }
 function setLang(lang){
   const dict = I18N[lang] || I18N.pt;
@@ -278,6 +300,16 @@ function setLang(lang){
   if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : 'Informações'); }
   const catSel2 = document.getElementById('categoryFilter');
   if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : 'Filtrar por categoria'); }
+
+// Update superbar labels
+  try{
+    const labels = SUPERBAR_I18N[lang] || SUPERBAR_I18N.pt;
+    document.querySelectorAll('.superbar-list [data-key]').forEach(function(a){
+      const key = a.getAttribute('data-key');
+      if (key && labels[key]) { a.textContent = labels[key]; }
+    });
+  }catch(e){}
+
 }
 
 
