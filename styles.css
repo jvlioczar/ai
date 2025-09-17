@@ -1995,3 +1995,23 @@ body[data-theme='light'] .card.card-link:focus-visible{
   background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
   opacity: .9;
 }
+
+
+/* === Mobile full-width cards ===
+   Make cards occupy the full available width (with container padding) on small screens.
+   Keeps the existing design untouched on larger breakpoints. */
+@media (max-width: 640px){
+  .grid{
+    /* Force a single column that stretches across the container */
+    grid-template-columns: 1fr !important;
+  }
+  .card{
+    width: 100% !important;
+    max-width: none !important;
+  }
+  /* Ensure comfortable margins while allowing cards to visually reach the screen edges */
+  .container{
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
