@@ -56,7 +56,7 @@ html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:14px/1.
 /* Full-width sticky header */
 .site-header{
   position: sticky; top:0; z-index:30; width:100%;
-  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  background: color-mix(in oklab, var(--bg) 100%, transparent);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border-strong);
 }
@@ -995,8 +995,8 @@ html, body {
   top: 0;
   z-index: 50; /* above site-header */
   width: 100%;
-  /* slightly subtler than themes: mix bg with 88% and transparent to soften */
-  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  /* slightly subtler than themes: mix bg with 100% and transparent to soften */
+  background: color-mix(in oklab, var(--bg) 100%, transparent);
 }
 
 .superbar-list{
@@ -2029,3 +2029,28 @@ body[data-theme='light'] .card.card-link:focus-visible{
   transform: translateY(-1px) scale(1.02);
   box-shadow: -3px -3px 6px var(--shadow-hi), 5px 5px 10px var(--shadow-lo);
 }
+
+
+/* --- Performance & stability additions (2025-09-18) --- */
+
+/* Reserve header/superbar space to prevent CLS */
+.superbar{min-height:29px}
+.site-header{min-height:64px}
+
+/* Sidebar width CSS var default in case JS hasn't run yet */
+:root{ --sidepush-w: 0px; }
+
+/* Avoid layout thrash while building categories */
+.category{content-visibility:auto; contain-intrinsic-size: 320px;}
+.grid .card{content-visibility:auto; contain: layout paint style; contain-intrinsic-size: 120px 320px;}
+
+/* Tooltips should never push layout */
+.infotooltip{position:absolute}
+
+/* Respect reduced motion for cheap animations */
+@media (prefers-reduced-motion: reduce){
+  *{animation: none !important; transition: none !important;}
+}
+
+/* Prevent late webfont swap from shifting layout */
+html{font-size-adjust: 0.5;}

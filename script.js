@@ -438,7 +438,15 @@ function createCard(item){
 
   // Title with favicon
   const title = document.createElement('p'); title.className='title-line';
-  const ico = createFaviconEl(item.url, parsed.item); title.appendChild(ico);
+  
+  // Defer favicon creation to idle time to keep main thread snappy
+  (window.requestIdleCallback || window.requestAnimationFrame)(function(){
+    try{
+      const ico = createFaviconEl(item.url, parsed.item);
+      title.insertBefore(ico, title.firstChild);
+    }catch(e){ /* noop */ }
+  });
+
   const m = parsed.item.match(/^(.*?)(\s*\(.*\)\s*)$/);
   if(m){
     title.appendChild(document.createTextNode(' '+m[1].trim()));
@@ -540,7 +548,7 @@ function applyFilters(data){
   const countEl = document.getElementById('count'); if(countEl) countEl.textContent = totalCount;
 
   if(names.length===0){const p=document.createElement('p');p.className='no-results';p.textContent=(getLang()==='en'?I18N.en.noResults:I18N.pt.noResults);root.appendChild(p);return;}
-  names.forEach(n=>root.appendChild(buildCategory(n,cats[n])));
+  const frag=document.createDocumentFragment(); names.forEach(n=>frag.appendChild(buildCategory(n,cats[n]))); root.appendChild(frag);
 }
 
 function setTheme(theme){

@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 
 <html data-theme="dark" lang="pt-br">
+<head>
   <link rel="icon" href="images/icon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="images/icon.svg" imagesizes="23px" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#0e1117">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BiblioVerse — A Biblioteca de IAs — Catálogo pesquisável das melhores ferramentas de IA por categoria</title>
 <meta content="Catálogo pesquisável das melhores ferramentas de IA por categoria. O projeto é minimalista e conta com uma biblioteca essencial sobre IAs, ideal para colocar nos favoritos do seu navegador." name="description"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 <link href="manifest.webmanifest" rel="manifest"/>
@@ -37,7 +42,7 @@
   <h1 class="brand">
     <!-- Link apenas no ícone -->
     <a href="https://biblioverse.org" target="_blank" rel="noopener noreferrer">
-      <img src="images/icon.svg" alt="Logo" class="brand-logo"
+      <img src="images/icon.svg" alt="Logo" class="brand-logo" fetchpriority="high"
            style="height:23px;width:23px;vertical-align:middle;margin-right:4px;">
     </a>
     <!-- Nome do site continua separado -->
@@ -3829,7 +3834,7 @@
     "description": "",
     "tags": []
   }
-]</script><script>window.DEFAULT_CATEGORY="__ALL__";</script><script src="script.js"></script></div>
+]</script><script>window.DEFAULT_CATEGORY="__ALL__";</script><script src="script.js" defer></script></div>
   <!-- PWA Install Button -->
   <button id="btnInstall" class="pwa-install" hidden>Instalar app</button>
 
