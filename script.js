@@ -1218,39 +1218,16 @@ if (typeof updateMenuToggleUi === 'function') {
   });
 })();
 
-/* PWA: Service Worker registration + Add to Home Screen prompt */
+/* PWA: Service Worker registration (default A2HS banner) */
 (function(){
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function(){
-      navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+      // Use relative path for GitHub Pages
+      navigator.serviceWorker.register('./service-worker.js', { scope: './' }).catch(console.error);
     });
   }
-  var deferredPrompt = null;
-  var btn = document.getElementById('btnInstall');
-  window.addEventListener('beforeinstallprompt', function(e){
-    e.preventDefault();
-    deferredPrompt = e;
-    if (btn) { btn.hidden = false; }
-  });
-  if (btn) {
-    btn.addEventListener('click', async function(){
-      btn.disabled = true;
-      try {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          const choice = await deferredPrompt.userChoice;
-          // hide button regardless of outcome
-          btn.hidden = true;
-          deferredPrompt = null;
-        }
-      } finally {
-        btn.disabled = false;
-      }
-    });
-  }
+  // No beforeinstallprompt interception here — browsers will show the default install banner automatically.
 })();
-
-
 // Superbar mobile toggle
 document.addEventListener('DOMContentLoaded', function(){
   const superbar = document.querySelector('.superbar');
