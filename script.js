@@ -686,6 +686,7 @@ function setupInfo(){
   updateDocTitleAndMeta();
       // Scroll main page to top and reset sidebar scroll as if 'back to top' was clicked
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollSidebarToId('all');
       var sideScroll = document.getElementById('sideScroll');
       if (sideScroll) { try { sideScroll.scrollTo({ top: 0, behavior: 'auto' }); } catch(e) { sideScroll.scrollTop = 0; } }
 
@@ -704,12 +705,17 @@ function setupInfo(){
     if(v==='all'){
       if(history.replaceState){ history.replaceState(null,'',location.pathname + location.search); } else { location.hash=''; }
       window.scrollTo({top:0, behavior:'smooth'});
+      // NEW: reveal 'All categories' at the top of the sidebar
+      scrollSidebarToId('all');
     }else{
       const newHash = '#'+v;
       if(newHash!==location.hash){
         if(history.replaceState){ history.replaceState(null,'',newHash); } else { location.hash=newHash; }
       }
       const sec=document.getElementById(v); if(sec){ smoothScrollToId(sec.id); }
+      scrollSidebarToId(v);
+      // NEW: ensure sidebar reveals the selected category
+      scrollSidebarToId(v);
     }
   try{ if(typeof window.__rebuildSideMenu==='function'){ window.__rebuildSideMenu(); } }catch(e){}
     });
@@ -734,6 +740,7 @@ function setupInfo(){
       updateDocTitleAndMeta();
       // Scroll main page to top and reset sidebar scroll as if 'back to top' was clicked
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollSidebarToId('all');
       var sideScroll = document.getElementById('sideScroll');
       if (sideScroll) { try { sideScroll.scrollTo({ top: 0, behavior: 'auto' }); } catch(e) { sideScroll.scrollTop = 0; } }
 
@@ -747,9 +754,13 @@ function setupInfo(){
     if(h && sel.value!==h){
       sel.value=h; applyFilters(data);
       const sec=document.getElementById(h); if(sec){ smoothScrollToId(sec.id); }
+    // NEW: ensure sidebar scrolls to active item on hash change
+    scrollSidebarToId(h);
     }
     if(!h && sel.value!=='all'){
       sel.value='all'; applyFilters(data); window.scrollTo({top:0, behavior:'smooth'});
+      // NEW: reveal 'All categories' at the top of the sidebar
+      scrollSidebarToId('all');
     }
   });
 
@@ -1270,3 +1281,34 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 })();
+
+
+// === Ensure the sidebar scrolls to reveal the active category =================
+function scrollSidebarToId(idOrAll){
+  try{
+    var sideScroll = document.getElementById('sideScroll');
+    var menu = document.getElementById('sideMenu');
+    if(!sideScroll || !menu) return;
+    var selector = (idOrAll && idOrAll !== 'all') ? ('#sideMenu a[href="#'+idOrAll+'"]') : '#sideMenu a[href="#"]';
+    var link = document.querySelector(selector);
+    if(!link) return;
+    var item = link.closest('.sidepush-item') || link;
+
+    // Update active state in the sidebar
+    menu.querySelectorAll('.sidepush-item.active').forEach(function(el){ el.classList.remove('active'); });
+    item.classList.add('active');
+
+    // Compute target scroll so the item becomes visible (center-ish)
+    var offsetTop = item.offsetTop - 8; // small top padding
+    var itemBottom = offsetTop + item.offsetHeight;
+    var viewTop = sideScroll.scrollTop;
+    var viewBottom = viewTop + sideScroll.clientHeight;
+
+    // Only scroll if item is out of view or barely visible
+    if(offsetTop < viewTop || itemBottom > viewBottom){
+      var target = offsetTop - Math.max(0, (sideScroll.clientHeight - item.offsetHeight)/2);
+      sideScroll.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+    }
+  }catch(e){}
+}
+
