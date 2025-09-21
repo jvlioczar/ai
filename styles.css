@@ -1,3 +1,41 @@
+
+/* === Performance: reserve space & reduce CLS === */
+#root{
+  min-height: 1000px; /* reserve space for first render */
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+}
+@media (max-width: 800px){
+  #root{ min-height: 800px; contain-intrinsic-size: 800px; }
+}
+
+/* Reserve width for dynamic counter to avoid shifting */
+#count{ display:inline-block; min-width: 3ch; }
+
+/* Avoid scroll-bar popping causing layout shift */
+html{ scrollbar-gutter: stable both-edges; }
+
+/* Skeleton placeholders (removed after first render) */
+.skeleton{ padding: 8px 0 16px; }
+.skeleton-title{ height: 28px; border-radius: 12px; opacity: .55; }
+.skeleton-grid{ margin-top: 12px; display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; }
+@media (min-width: 760px){ .skeleton-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.skeleton-card{ height: 68px; border-radius: 14px; position:relative; overflow:hidden; }
+.skeleton-title, .skeleton-card{
+  background: linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.12), rgba(255,255,255,.06));
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s infinite linear;
+}
+@keyframes skeleton-shimmer{
+  0%{ background-position: 200% 0; }
+  100%{ background-position: -200% 0; }
+}
+
+/* Reserve icon box to avoid favicon-induced shifts */
+.card .favicon, .item .favicon, img.favicon{
+  width: 20px; height: 20px; aspect-ratio: 1 / 1; flex: 0 0 20px; object-fit: contain;
+}
+
 html, body{margin:0;padding:0;}
 
 /* --- Stability: prevent horizontal nudge when content height changes --- */

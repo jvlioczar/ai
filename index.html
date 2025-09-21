@@ -2,75 +2,66 @@
 
 <html>
 <head>
-  <!-- Ícones principais --><!-- Apple (iOS) -->
-  <link rel="apple-touch-icon" href="./images/icon_192.png">
-
-  <!-- Preload opcional para o SVG se quiser -->
-  <link rel="preload" as="image" href="./images/icon.svg" imagesizes="23px">
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0e1117">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-
-  <title>BiblioVerse — A Biblioteca de IAs — Catálogo pesquisável das melhores ferramentas de IA por categoria</title>
+<!-- Ícones principais --><!-- Apple (iOS) -->
+<link href="./images/icon_192.png" rel="apple-touch-icon"/>
+<!-- Preload opcional para o SVG se quiser -->
+<link as="image" href="./images/icon.svg" imagesizes="23px" rel="preload"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#0e1117" name="theme-color"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<title>BiblioVerse — A Biblioteca de IAs — Catálogo pesquisável das melhores ferramentas de IA por categoria</title>
 <!-- App icons -->
-  <link rel="icon" href="images/icon.svg" type="image/svg+xml">
-  <link rel="icon" href="images/icon_192.png" sizes="192x192" type="image/png">
-  <link rel="icon" href="images/icon_512.png" sizes="512x512" type="image/png">
-  <link rel="apple-touch-icon" href="images/icon_192.png">
-  <meta name="theme-color" content="#0e1117">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="description" content="Catálogo pesquisável das melhores ferramentas de IA por categoria. O projeto é minimalista e conta com uma biblioteca essencial sobre IAs, ideal para colocar nos favoritos do seu navegador.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&display=swap" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
-  <link rel="manifest" href="./manifest.webmanifest">
+<link href="images/icon.svg" rel="icon" type="image/svg+xml"/>
+<link href="images/icon_192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="images/icon_512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="images/icon_192.png" rel="apple-touch-icon"/>
+<meta content="#0e1117" name="theme-color"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="Catálogo pesquisável das melhores ferramentas de IA por categoria. O projeto é minimalista e conta com uma biblioteca essencial sobre IAs, ideal para colocar nos favoritos do seu navegador." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link as="style" href="styles.css" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="styles.css" rel="stylesheet"/></noscript>
+<link href="./manifest.webmanifest" rel="manifest"/>
 </head>
-
 <body>
-
 <!-- Super-bar: 8 equal tabs across the full width -->
-<nav class="superbar" aria-label="Bibliotecas">
-  <div class="superbar-toggle"><span class="superbar-title i18n-superbar-title">BiblioVerse - A Biblioteca de Tudo</span> <span class="icon-burger" aria-hidden="true"><i></i><i></i><i></i></span><span class="icon-close" aria-hidden="true">✕</span></div>
-  <ul class="superbar-list">
-    <li class="superbar-item"><a href="https://design.biblioverse.org" data-key="design">Design</a></li>
-    <li class="superbar-item"><a href="https://games.biblioverse.org" data-key="games">Games</a></li>
-    <li class="superbar-item"><a href="https://language.biblioverse.org" data-key="language">Idiomas</a></li>
-    <li class="superbar-item active"><a href="https://ai.biblioverse.org" data-key="ai">IA</a></li>
-    <li class="superbar-item"><a href="https://music.biblioverse.org" data-key="music">Música</a></li>
-    <li class="superbar-item"><a href="https://code.biblioverse.org" data-key="coding">Programação</a></li>
-    <li class="superbar-item"><a href="https://social.biblioverse.org" data-key="social">Redes Sociais</a></li>
-  </ul>
+<nav aria-label="Bibliotecas" class="superbar">
+<div class="superbar-toggle"><span class="superbar-title i18n-superbar-title">BiblioVerse - A Biblioteca de Tudo</span> <span aria-hidden="true" class="icon-burger"><i></i><i></i><i></i></span><span aria-hidden="true" class="icon-close">✕</span></div>
+<ul class="superbar-list">
+<li class="superbar-item"><a data-key="design" href="https://design.biblioverse.org">Design</a></li>
+<li class="superbar-item"><a data-key="games" href="https://games.biblioverse.org">Games</a></li>
+<li class="superbar-item"><a data-key="language" href="https://language.biblioverse.org">Idiomas</a></li>
+<li class="superbar-item active"><a data-key="ai" href="https://ai.biblioverse.org">IA</a></li>
+<li class="superbar-item"><a data-key="music" href="https://music.biblioverse.org">Música</a></li>
+<li class="superbar-item"><a data-key="coding" href="https://code.biblioverse.org">Programação</a></li>
+<li class="superbar-item"><a data-key="social" href="https://social.biblioverse.org">Redes Sociais</a></li>
+</ul>
 </nav>
-
-
-<aside aria-label="Categorias" class="sidepush" id="sidepush"><div class="sidepush-top"><button id="menuToggle" class="side-toggle" aria-label="Expandir menu" title="Expandir menu" type="button">▶</button></div><nav class="sidepush-scroll" id="sideScroll"><ul class="sidepush-menu" id="sideMenu"></ul></nav></aside><div class="push-wrap" id="pushWrap"><header class="site-header">
+<aside aria-label="Categorias" class="sidepush" id="sidepush"><div class="sidepush-top"><button aria-label="Expandir menu" class="side-toggle" id="menuToggle" title="Expandir menu" type="button">▶</button></div><nav class="sidepush-scroll" id="sideScroll"><ul class="sidepush-menu" id="sideMenu"></ul></nav></aside><div class="push-wrap" id="pushWrap"><header class="site-header">
 <div class="header-inner container">
 <div class="brand-wrap">
-  <h1 class="brand">
-    <!-- Link apenas no ícone -->
-    <a href="https://biblioverse.org" target="_blank" rel="noopener noreferrer">
-      <img src="images/icon.svg" alt="Logo" class="brand-logo" fetchpriority="high"
-           style="height:23px;width:23px;vertical-align:middle;margin-right:4px;">
-    </a>
-    <!-- Nome do site continua separado -->
-    <a href="#" class="brand-link">
-      <span class="brand-gradient i18n-brand">A Biblioteca de IAs</span>
-    </a>
-    <span class="beta-badge">
+<h1 class="brand">
+<!-- Link apenas no ícone -->
+<a href="https://biblioverse.org" rel="noopener noreferrer" target="_blank">
+<img alt="Logo" class="brand-logo" fetchpriority="high" src="images/icon.svg" style="height:23px;width:23px;vertical-align:middle;margin-right:4px;"/>
+</a>
+<!-- Nome do site continua separado -->
+<a class="brand-link" href="#">
+<span class="brand-gradient i18n-brand">A Biblioteca de IAs</span>
+</a>
+<span class="beta-badge">
       BETA
     </span>
-  </h1>
-  <span class="byline">
-    <span class="i18n-by">Idealizada por</span>
-    <a class="bylink" href="https://instagram.com/jvlioczar" rel="noopener noreferrer" target="_blank">Julio Cesar Prava</a>
-    <span class="i18n-and"> &amp;</span>
-    <a class="bylink" href="https://instagram.com/roney_amorim" rel="noopener noreferrer" target="_blank">Roney Amorim</a>
-  </span>
+</h1>
+<span class="byline">
+<span class="i18n-by">Idealizada por</span>
+<a class="bylink" href="https://instagram.com/jvlioczar" rel="noopener noreferrer" target="_blank">Julio Cesar Prava</a>
+<span class="i18n-and"> &amp;</span>
+<a class="bylink" href="https://instagram.com/roney_amorim" rel="noopener noreferrer" target="_blank">Roney Amorim</a>
+</span>
 </div>
 <div class="controls">
 <input autofocus="" class="mono" id="search" placeholder="Buscar por nome" type="search"/>
@@ -84,13 +75,13 @@
 </div>
 </div>
 </header><div class="container">
-<div aria-live="polite" id="root"></div>
+<div aria-live="polite" id="root"><div class="skeleton" id="skeleton"><div class="skeleton-title"></div><div class="skeleton-grid"><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div></div></div></div>
 <footer class="footer">
 <div class="footer-inner">
 <!-- Total vem primeiro -->
 <div class="footer-count">
 <span class="i18n-total">Total</span>: 
-      <span id="count"></span>
+      <span id="count">0</span>
 <span class="i18n-items">itens</span>
 <span class="sep">|</span>
 <span class="i18n-lastupdate">Última atualização: Setembro/2025</span>
@@ -106,7 +97,7 @@
 <a class="btn linkedin mono" href="https://linkedin.com/in/juliocesarprava/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
 <button aria-label="Favoritar" class="btn star mono" id="favBtn" type="button">⭐</button>
 <button class="btn share mono" id="shareBtn" type="button"><span class="i18n-share">Compartilhar</span></button>
-<a class="btn bverse mono" href="https://biblioverse.org" target="_blank" rel="noopener noreferrer">BiblioVerse</a>
+<a class="btn bverse mono" href="https://biblioverse.org" rel="noopener noreferrer" target="_blank">BiblioVerse</a>
 </div>
 <p class="footer-thanks i18n-thanks">Obrigado pela visita!</p>
 </div>
@@ -3846,10 +3837,9 @@
     "description": "",
     "tags": []
   }
-]</script><script>window.DEFAULT_CATEGORY="__ALL__";</script><script src="script.js" defer></script></div>
-  <!-- PWA Install Button -->
-  <button id="btnInstall" class="pwa-install" hidden>Instalar app</button>
-
-  <script src="./sw-register.js"></script>
+]</script><script>window.DEFAULT_CATEGORY="__ALL__";</script><script defer="" src="script.js"></script></div>
+<!-- PWA Install Button -->
+<button class="pwa-install" hidden="" id="btnInstall">Instalar app</button>
+<script defer="defer" src="./sw-register.js"></script>
 </body>
 </html>

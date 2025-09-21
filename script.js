@@ -535,7 +535,7 @@ function populateSelect(categories){
 function applyFilters(data){
   const q=document.getElementById('search').value.trim().toLowerCase();
   const catSlug=document.getElementById('categoryFilter').value;
-  const root=document.getElementById('root');clear(root);
+  const root=document.getElementById('root');
   const cats=groupBy(data.filter(item=>{
     const hay=(item.name+' '+(item.category||'')).toLowerCase();
     const okQ=q===''||hay.includes(q);
@@ -548,7 +548,11 @@ function applyFilters(data){
   const countEl = document.getElementById('count'); if(countEl) countEl.textContent = totalCount;
 
   if(names.length===0){const p=document.createElement('p');p.className='no-results';p.textContent=(getLang()==='en'?I18N.en.noResults:I18N.pt.noResults);root.appendChild(p);return;}
-  const frag=document.createDocumentFragment(); names.forEach(n=>frag.appendChild(buildCategory(n,cats[n]))); root.appendChild(frag);
+  const frag=document.createDocumentFragment(); names.forEach(n=>frag.appendChild(buildCategory(n,cats[n])));
+  // Replace all at once to avoid empty-state jank
+  root.replaceChildren(frag);
+  // Remove skeleton if present
+  var sk = document.getElementById('skeleton'); if(sk && sk.parentElement===root){ try{ sk.remove(); }catch(e){} }
 }
 
 function setTheme(theme){
@@ -596,7 +600,7 @@ function smoothScrollToId(id){
   const off=getHeaderOffset();
   const rect=el.getBoundingClientRect();
   const y=window.scrollY + rect.top - off;
-  window.scrollTo({top: Math.max(0,y), behavior:'smooth'});
+  requestAnimationFrame(()=>window.scrollTo({top: Math.max(0,y), behavior:'smooth'}));
 }
 
 function ensureTopButton(){
@@ -1229,16 +1233,7 @@ if (typeof updateMenuToggleUi === 'function') {
   });
 })();
 
-/* PWA: Service Worker registration (default A2HS banner) */
-(function(){
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function(){
-      // Use relative path for GitHub Pages
-      navigator.serviceWorker.register('./service-worker.js', { scope: './' }).catch(console.error);
-    });
-  }
-  // No beforeinstallprompt interception here — browsers will show the default install banner automatically.
-})();
+
 // Superbar mobile toggle
 document.addEventListener('DOMContentLoaded', function(){
   const superbar = document.querySelector('.superbar');
@@ -1307,7 +1302,7 @@ function scrollSidebarToId(idOrAll){
     // Only scroll if item is out of view or barely visible
     if(offsetTop < viewTop || itemBottom > viewBottom){
       var target = offsetTop - Math.max(0, (sideScroll.clientHeight - item.offsetHeight)/2);
-      sideScroll.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+      requestAnimationFrame(()=>sideScroll.scrollTo({ top: Math.max(0, target), behavior: 'smooth' }));
     }
   }catch(e){}
 }
