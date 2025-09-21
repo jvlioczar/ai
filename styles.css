@@ -2092,3 +2092,10 @@ body[data-theme='light'] .card.card-link:focus-visible{
 
 /* Prevent late webfont swap from shifting layout */
 html{font-size-adjust: 0.5;}
+
+
+/* === Hydration fix: collapse reserved space once content is ready === */
+#root.hydrated{
+  min-height: 0 !important;
+  contain-intrinsic-size: auto;
+}

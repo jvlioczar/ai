@@ -1307,3 +1307,12 @@ function scrollSidebarToId(idOrAll){
   }catch(e){}
 }
 
+
+
+// === Hydration flag to remove reserved min-height and close footer gap ===
+window.addEventListener('load', function(){
+  try{
+    var r = document.getElementById('root');
+    if(r){ r.classList.add('hydrated'); }
+  }catch(e){}
+});
