@@ -208,7 +208,7 @@ const I18N = {
     noResults:"Nenhum resultado.",
     footerLeadPre:"",
     projectName:"A Biblioteca de IAs",
-    footerLeadPost:"foi idealizada e curada por Julio Cesar Prava, construída com ajuda de IA.",
+    footerLeadPost:"foi idealizada por Julio Cesar Prava e construída com a ajuda de IA. O projeto reúne itens selecionados e revisados por curadores humanos.",
     bookmarkShare:"Salve esse projeto nos seus favoritos e compartilhe!",
     thanks:"Obrigado pela visita!",
     lastUpdate:"Última atualização: Setembro/2025",
