@@ -230,7 +230,7 @@ const I18N = {
     noResults:"No results.",
     footerLeadPre:"",
     projectName:"The AI Library",
-    footerLeadPost:"was conceived by Julio Cesar Prava, built with the help of AI, and reviewed by Roney Amorim.",
+    footerLeadPost:"was conceived by Julio Cesar Prava and built with the help of AI. The project showcases items selected and reviewed by human curators.",
     bookmarkShare:"Bookmark this project and share it!",
     thanks:"Thanks for visiting!",
     lastUpdate:"Last update: September/2025",
