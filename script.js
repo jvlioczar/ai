@@ -65,6 +65,7 @@ const CAT_I18N = {
 "Bibliotecas de IAs": "AI libraries",
 "Chat com IA": "AI chatbots",
 "Currículo com IA": "AI resumes",
+"Cursos de IA": "AI courses",
 "Design com IA": "AI design",
 "Detetive com IA": "AI detective",
 "Divulgadores de IAs": "AI curators",
@@ -110,6 +111,7 @@ const CAT_ICON = {
   "Bibliotecas de IAs": "📌",
   "Chat com IA": "💬",
   "Currículo com IA": "📄",
+  "Cursos de IA": "📚",
   "Design com IA": "🎨",
   "Detetive com IA": "🕵️",
   "Divulgadores de IAs": "🚀",
@@ -841,6 +843,10 @@ const ICONS = {
   'ai-resumes': '📄',
   'curriculo-com-ia': '📄',
 
+    // Courses
+  'ai-courses': '📚',
+  'cursos-de-ia': '📚',
+
   // Design / image creation suites
   'ai-design': '🎨',
   'design-com-ia': '🎨',
@@ -975,6 +981,7 @@ function iconFor(slug){
   if(s.includes('browser') || s.includes('navegador')) return '🌐';
   if(s.includes('market')) return '📣';
   if(s.includes('resume') || s.includes('curriculo')) return '📄';
+  if(s.includes('courses') || s.includes('cursos')) return '📚';
   if(s.includes('translate') || s.includes('traducao')) return '🌍';
   if(s.includes('transcri')) return '📝';
   if(s.includes('auto')) return '⚙️';
