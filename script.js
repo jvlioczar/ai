@@ -267,7 +267,19 @@ const SUPERBAR_I18N = {
   }
 };
 
-function getLang(){ try{ return localStorage.getItem('libia-lang') || 'pt'; }catch(e){ return 'pt'; } }
+function detectBrowserLang(){
+  try{
+    const nav = navigator.language || navigator.userLanguage || '';
+    return nav.toLowerCase().startsWith('pt') ? 'pt' : 'en';
+  }catch(e){ return 'pt'; }
+}
+function getLang(){
+  try{
+    const saved = localStorage.getItem('libia-lang');
+    if(saved) return saved;
+    return detectBrowserLang();
+  }catch(e){ return 'pt'; }
+}
 function setLang(lang){
   const dict = I18N[lang] || I18N.pt;
   try{ localStorage.setItem('libia-lang', lang); }catch(e){}
