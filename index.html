@@ -1,45 +1,30 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="pt-BR">
 <head>
-<!-- Ícones principais --><!-- Apple (iOS) -->
-<link href="./images/icon_192.png" rel="apple-touch-icon"/>
-<!-- Preload opcional para o SVG se quiser -->
-<link as="image" href="./images/icon.svg" imagesizes="23px" rel="preload"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>BiblioVerse — A Biblioteca de IAs — Catálogo pesquisável das melhores ferramentas de IA por categoria</title>
+<meta content="Catálogo pesquisável das melhores ferramentas de IA por categoria. O projeto é minimalista e conta com uma biblioteca essencial sobre IAs, ideal para colocar nos favoritos do seu navegador." name="description"/>
+<link href="https://ai.biblioverse.org/" rel="canonical"/>
 <meta content="#0e1117" name="theme-color"/>
 <meta content="yes" name="mobile-web-app-capable"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
-<title>BiblioVerse — A Biblioteca de IAs — Catálogo pesquisável das melhores ferramentas de IA por categoria</title>
 <!-- App icons -->
 <link href="images/icon.svg" rel="icon" type="image/svg+xml"/>
 <link href="images/icon_192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="images/icon_512.png" rel="icon" sizes="512x512" type="image/png"/>
 <link href="images/icon_192.png" rel="apple-touch-icon"/>
-<meta content="#0e1117" name="theme-color"/>
 <link href="manifest.webmanifest" rel="manifest"/>
-<meta content="Catálogo pesquisável das melhores ferramentas de IA por categoria. O projeto é minimalista e conta com uma biblioteca essencial sobre IAs, ideal para colocar nos favoritos do seu navegador." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/></noscript>
 <link as="style" href="styles.css" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="styles.css" rel="stylesheet"/></noscript>
-<link href="./manifest.webmanifest" rel="manifest"/>
+<!-- BiblioVerse Superbar -->
+<script src="https://biblioverse.org/superbar.js" defer></script>
 </head>
 <body>
-<!-- Super-bar: 8 equal tabs across the full width -->
-<nav aria-label="Bibliotecas" class="superbar">
-<div class="superbar-toggle"><span class="superbar-title i18n-superbar-title">BiblioVerse - A Biblioteca de Tudo</span> <span aria-hidden="true" class="icon-burger"><i></i><i></i><i></i></span><span aria-hidden="true" class="icon-close">✕</span></div>
-<ul class="superbar-list">
-<li class="superbar-item"><a data-key="design" href="https://design.biblioverse.org">Design</a></li>
-<li class="superbar-item"><a data-key="games" href="https://games.biblioverse.org">Games</a></li>
-<li class="superbar-item"><a data-key="language" href="https://language.biblioverse.org">Idiomas</a></li>
-<li class="superbar-item active"><a data-key="ai" href="https://ai.biblioverse.org">IA</a></li>
-<li class="superbar-item"><a data-key="music" href="https://music.biblioverse.org">Música</a></li>
-<li class="superbar-item"><a data-key="coding" href="https://code.biblioverse.org">Programação</a></li>
-<li class="superbar-item"><a data-key="social" href="https://social.biblioverse.org">Redes Sociais</a></li>
-</ul>
-</nav>
+<!-- BiblioVerse Superbar -->
+<nav id="bvbar" class="bvbar" data-current="ai" aria-label="BiblioVerse" style="position:fixed;top:0;left:0;right:0;height:44px;z-index:9000;background:linear-gradient(90deg,#4f7cff,#7a5cff)"><a href="https://biblioverse.org" style="color:#fff;line-height:44px;padding:0 14px;font-weight:700;text-decoration:none;font-family:sans-serif">BiblioVerse</a></nav>
 <aside aria-label="Categorias" class="sidepush" id="sidepush"><div class="sidepush-top"><button aria-label="Expandir menu" class="side-toggle" id="menuToggle" title="Expandir menu" type="button">▶</button></div><nav class="sidepush-scroll" id="sideScroll"><ul class="sidepush-menu" id="sideMenu"></ul></nav></aside><div class="push-wrap" id="pushWrap"><header class="site-header">
 <div class="header-inner container">
 <div class="brand-wrap">
@@ -56,15 +41,9 @@
       BETA
     </span>
 </h1>
-<span class="byline">
-<span class="i18n-by">Idealizada por</span>
-<a class="bylink" href="https://jvlio.biblioverse.org" rel="noopener noreferrer" target="_blank">Julio Cesar Prava</a>
-<span class="i18n-and"></span>
-<a class="bylink" href="" rel="noopener noreferrer" target="_blank"></a>
-</span>
 </div>
 <div class="controls">
-<input autofocus="" class="mono" id="search" placeholder="Buscar por nome" type="search"/>
+<input class="mono" id="search" placeholder="Buscar por nome" type="search"/>
 <select class="mono" id="categoryFilter" title="Filtrar por categoria"></select>
 <div class="control-group">
 <button aria-label="Alternar tema" class="toggle" id="themeToggle" type="button">☀️</button>
@@ -84,7 +63,7 @@
       <span id="count">0</span>
 <span class="i18n-items">itens</span>
 <span class="sep">|</span>
-<span class="i18n-lastupdate">Última atualização: Setembro/2025</span>
+<span class="i18n-lastupdate">Última atualização: Outubro/2026</span>
 </div>
 <p class="footer-lead">
 <span class="i18n-footer-lead-pre">O projeto</span>
@@ -94,7 +73,7 @@
 <p class="footer-note i18n-bookmarkShare">Salve esse projeto nos seus favoritos e compartilhe!</p>
 <p class="footer-nav"><span class="i18n-footernav">Acesse as bibliotecas de outros temas úteis no <strong class="bverse-strong">BiblioVerse</strong>.</span></p>
 <div class="footer-actions">
-<a class="btn linkedin mono" href="https://linkedin.com/in/juliocesarprava/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="btn linkedin mono" href="https://www.linkedin.com/company/biblioverse.org" rel="noopener noreferrer" target="_blank">LinkedIn</a>
 <button aria-label="Favoritar" class="btn star mono" id="favBtn" type="button">⭐</button>
 <button class="btn share mono" id="shareBtn" type="button"><span class="i18n-share">Compartilhar</span></button>
 <a class="btn bverse mono" href="https://biblioverse.org" rel="noopener noreferrer" target="_blank">BiblioVerse</a>
@@ -220,6 +199,13 @@
     "tags": []
   },
   {
+    "category": "Agentes de IA",
+    "name": "Lindy",
+    "url": "https://www.lindy.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
     "category": "Apresentações com IA",
     "name": "AutoSlide",
     "url": "https://autoslide.ai/",
@@ -244,14 +230,7 @@
   {
     "category": "Apresentações com IA",
     "name": "ClassPoint",
-    "url": "https://chroniclehq.com/",
-    "description": "",
-    "tags": []
-  },
-  {
-    "category": "Apresentações com IA",
-    "name": "Chronicle",
-    "url": "https://classpoint.io/",
+    "url": "https://www.classpoint.io/",
     "description": "",
     "tags": []
   },
@@ -560,6 +539,13 @@
     "featured": true
   },
   {
+    "category": "Automação com IA",
+    "name": "Gumloop",
+    "url": "https://www.gumloop.com/",
+    "description": "",
+    "tags": []
+  },
+  {
     "category": "Avatar com IA",
     "name": "Colossyan",
     "url": "https://colossyan.com",
@@ -592,6 +578,13 @@
     "category": "Avatar com IA",
     "name": "Synthesys",
     "url": "https://synthesys.io/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Avatar com IA",
+    "name": "Hedra",
+    "url": "https://www.hedra.com/",
     "description": "",
     "tags": []
   },
@@ -645,7 +638,7 @@
     "description": "",
     "tags": []
   },
-{
+  {
     "category": "Benchmarks de IA",
     "name": "Android Bench",
     "url": "https://developer.android.com/bench",
@@ -708,6 +701,13 @@
     "category": "Benchmarks de IA",
     "name": "Stanford HELM",
     "url": "https://crfm.stanford.edu/helm",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Benchmarks de IA",
+    "name": "SWE-bench",
+    "url": "https://www.swebench.com/",
     "description": "",
     "tags": []
   },
@@ -793,7 +793,7 @@
   {
     "category": "Bibliotecas de IAs",
     "name": "Product Hunt AI Agents",
-    "url": "https://aitophub.com",
+    "url": "https://www.producthunt.com/categories/ai-agents",
     "description": "",
     "tags": []
   },
@@ -1023,14 +1023,14 @@
     "description": "",
     "tags": []
   },
- {
+  {
     "category": "Cursos de IA",
     "name": "Coursera AI",
     "url": "https://www.coursera.org/courses?query=artificial%20intelligence",
     "description": "",
     "tags": []
   },
- {
+  {
     "category": "Cursos de IA",
     "name": "DataCamp",
     "url": "https://datacamp.com/",
@@ -1083,6 +1083,20 @@
     "category": "Currículo com IA",
     "name": "Resume.io",
     "url": "https://resume.io/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Currículo com IA",
+    "name": "Rezi",
+    "url": "https://www.rezi.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Currículo com IA",
+    "name": "Teal",
+    "url": "https://www.tealhq.com/",
     "description": "",
     "tags": []
   },
@@ -1283,6 +1297,13 @@
     "tags": []
   },
   {
+    "category": "Design com IA",
+    "name": "TapNow",
+    "url": "https://tapnow.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
     "category": "Detetive com IA",
     "name": "Maltego",
     "url": "https://maltego.com",
@@ -1292,7 +1313,7 @@
   {
     "category": "Detetive com IA",
     "name": "White Bridge",
-    "url": "http://whitebridge.ai/",
+    "url": "https://whitebridge.ai/",
     "description": "",
     "tags": []
   },
@@ -1461,6 +1482,20 @@
     "category": "Educação com IA",
     "name": "Wayground",
     "url": "https://wayground.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Educação com IA",
+    "name": "Edexia",
+    "url": "https://www.edexia.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Educação com IA",
+    "name": "Go1",
+    "url": "https://www.go1.com/",
     "description": "",
     "tags": []
   },
@@ -2195,7 +2230,7 @@
     "url": "https://pangram.com/",
     "description": "",
     "tags": []
-  }, 
+  },
   {
     "category": "Grandes empresas de IA",
     "name": "Palantir",
@@ -2228,6 +2263,13 @@
     "category": "Grandes empresas de IA",
     "name": "xAI",
     "url": "https://x.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Grandes empresas de IA",
+    "name": "Mistral AI",
+    "url": "https://mistral.ai/",
     "description": "",
     "tags": []
   },
@@ -2874,6 +2916,13 @@
     "tags": []
   },
   {
+    "category": "Matemática com IA",
+    "name": "Wolfram Alpha",
+    "url": "https://www.wolframalpha.com/",
+    "description": "",
+    "tags": []
+  },
+  {
     "category": "Navegador com IA",
     "name": "Arc",
     "url": "https://arc.net/",
@@ -2889,7 +2938,7 @@
   },
   {
     "category": "Navegador com IA",
-    "name": "Brave",
+    "name": "Browserbase",
     "url": "https://browserbase.com/",
     "description": "",
     "tags": []
@@ -2961,6 +3010,13 @@
     "category": "Navegador com IA",
     "name": "Sigma",
     "url": "https://sigmabrowser.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Navegador com IA",
+    "name": "ChatGPT Atlas",
+    "url": "https://chatgpt.com/atlas",
     "description": "",
     "tags": []
   },
@@ -3101,6 +3157,13 @@
     "category": "Pesquisa com IA",
     "name": "Semantic Scholar",
     "url": "https://semanticscholar.org",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Pesquisa com IA",
+    "name": "Askable",
+    "url": "https://www.askable.com/",
     "description": "",
     "tags": []
   },
@@ -3485,7 +3548,7 @@
   {
     "category": "Prompting para IA",
     "name": "PromptPerfect",
-    "url": "https://promptbase.com/",
+    "url": "https://promptperfect.jina.ai/",
     "description": "",
     "tags": []
   },
@@ -3500,6 +3563,20 @@
     "category": "Programação com IA",
     "name": "Windsurf (Codeium)",
     "url": "https://windsurf.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Programação com IA",
+    "name": "Claude Code",
+    "url": "https://claude.com/product/claude-code",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Programação com IA",
+    "name": "v0",
+    "url": "https://v0.app/",
     "description": "",
     "tags": []
   },
@@ -3563,6 +3640,13 @@
     "category": "Saúde com IA",
     "name": "Tempus AI",
     "url": "https://tempus.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Saúde com IA",
+    "name": "OpenEvidence",
+    "url": "https://www.openevidence.com/",
     "description": "",
     "tags": []
   },
@@ -4036,6 +4120,13 @@
     "tags": []
   },
   {
+    "category": "Transcrição com IA",
+    "name": "Granola",
+    "url": "https://www.granola.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
     "category": "Vídeo com IA",
     "name": "AnyVideo",
     "url": "https://anyvideo.ai/",
@@ -4378,6 +4469,13 @@
     "category": "Vídeo com IA",
     "name": "Wondershare Filmora",
     "url": "https://filmora.wondershare.net",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Vídeo com IA",
+    "name": "Opus Clip",
+    "url": "https://www.opus.pro/",
     "description": "",
     "tags": []
   }
